@@ -1,2 +1,4 @@
 # theo-docs
-Theo documentation repo
+Theo documentation 
+
+Sources for [theoapp.readthedocs.io](https://theoapp.readthedocs.io/en/latest/)
