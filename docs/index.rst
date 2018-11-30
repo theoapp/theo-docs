@@ -45,8 +45,6 @@ Theo documentation
    :caption: theo
 
    theo/installation
-   theo/installation-from-sources
-   theo/startup-envs
 
 Theo-cli documentation
 ----------------------
@@ -57,6 +55,7 @@ Theo-cli documentation
    :caption: theo-cli
 
    theo-cli/installation
+   theo-cli/signed_keys
 
 Theo-agent documentation
 ------------------------

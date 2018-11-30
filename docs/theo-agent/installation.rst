@@ -1,7 +1,7 @@
 Installation
 ================================
 
-Linux Install
+Download
 -------------
 
 1. Simply download one of the binaries for your system:
@@ -29,7 +29,6 @@ Linux Install
 
     sudo useradd \
         --comment 'Theo Agent' \
-        --create-home /var/cache/theo-agent \
         --shell /bin/false
 
 4. Install
