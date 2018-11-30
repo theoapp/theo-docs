@@ -1,0 +1,28 @@
+{
+  "name": "theo-docs",
+  "version": "0.1.0",
+  "description": "Theo documentations",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theoapp/theo-docs.git"
+  },
+  "keywords": [
+    "theo",
+    "authorizedkeys",
+    "authorizedkeyscommand",
+    "ssh"
+  ],
+  "author": "Michele <macno@authkeys.io> (macno)",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/theoapp/theo-docs/issues"
+  },
+  "homepage": "https://github.com/theoapp/theo-docs#readme"
+}
