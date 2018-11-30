@@ -1,5 +1,5 @@
-Installation
-============
+theo-cli installation
+=====================
 
 NPM
 ---
@@ -21,6 +21,7 @@ Install dependencies
 ^^^^^^^^^^^^^^^^^^^^
 
 ::
+
     $ npm install
 
 Build
