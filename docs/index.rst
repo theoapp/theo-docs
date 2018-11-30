@@ -51,6 +51,7 @@ First steps
    :caption: theo-agent
 
    theo-agent/installation
+   theo-agent/verify_signed_keys
 
 Indices and tables
 ==================
