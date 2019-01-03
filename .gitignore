@@ -106,3 +106,4 @@ venv.bak/
 # WebStorm
 .idea/
 
+.DS_Store
