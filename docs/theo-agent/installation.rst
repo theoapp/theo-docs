@@ -29,7 +29,8 @@ Download
 
     sudo useradd \
         --comment 'Theo Agent' \
-        --shell /bin/false
+        --shell /bin/false \
+        theo-agent
 
 4. Install
 ^^^^^^^^^^
