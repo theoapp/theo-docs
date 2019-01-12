@@ -38,6 +38,17 @@ Download
 4.1. Full Automatic install
 """""""""""""""""""""""""""
 
+
+    ATTENTION!!!
+
+    This command will:
+
+    * disable tunneled clear text passwords (no more user/password login!)
+    * disable users' .ssh/authorized_keys
+    * set theo-agent as unique source for authorized_keys
+
+    We suggest to keep an open session until you're sure everything works as expected
+
     ::
 
         sudo theo-agent -install \
@@ -45,6 +56,8 @@ Download
             -sshd-config \
             -url ${THEO_URL} \
             -token ${THEO_CLIENT_TOKEN}
+
+
 
 4.2. Semi-Automatic install
 """""""""""""""""""""""""""
@@ -90,3 +103,4 @@ Download
         AuthorizedKeysFile /var/cache/theo-agent/%u
         AuthorizedKeysCommand /usr/sbin/theo-agent [-config-file /path/to/config.yml] [-cache-path /path/to/cache/dir]
         AuthorizedKeysCommandUser theo-agent
+
