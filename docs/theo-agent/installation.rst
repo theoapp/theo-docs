@@ -104,3 +104,9 @@ Download
         AuthorizedKeysCommand /usr/sbin/theo-agent [-config-file /path/to/config.yml] [-cache-path /path/to/cache/dir]
         AuthorizedKeysCommandUser theo-agent
 
+5. Restart openssh
+^^^^^^^^^^^^^^^^^^
+
+    ::
+
+        sudo systemctl restart ssh.service
