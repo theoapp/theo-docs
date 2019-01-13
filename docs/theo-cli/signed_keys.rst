@@ -36,8 +36,10 @@ Configure
 ---------
 
 To enable signing, you must set 2 variables: `THEO_PRIVATE_KEY` and `THEO_PRIVATE_KEY_PASSPHRASE`.
+
 You can do it in 2 ways:
-* Adding them to the environment in with theo will be executed.
+
+* Adding them as environment variables while executing `theo`.
 * Adding them to the config file (the first file found will be used):
 
 ::
