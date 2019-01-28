@@ -1,7 +1,12 @@
 Welcome to Theo's documentation!
 ================================
 
-`Theo App`_ is a public key manager, you can use it as replacement for all of your `authorized_keys`
+.. figure:: _static/theo-logo.png
+    :width: 400
+    :alt: Theo logo
+    :align: center
+
+`Theo App`_ is the authorized keys manager, you can use it as replacement for all of your `authorized_keys`
 It allows you to set fine permissions (specific user and host) or to use wildcard (ex, using host `%.test.sample.com`)
 
 
