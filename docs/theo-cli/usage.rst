@@ -182,6 +182,7 @@ Add
 ^^^
 
 ::
+
     theo groups add [options]
 
     Create group
@@ -385,7 +386,7 @@ Examples
 --------
 
 
-To create a new account with name `john.doe`_ and email `john.doe@sample.com`_
+To create a new account with name *john.doe* and email *john.doe@sample.com*
 
 ::
 
@@ -406,7 +407,7 @@ To create a new account with name `john.doe`_ and email `john.doe@sample.com`_
     +---------------------------------+
 
 
-To create a new account with name `Gary Cooper`_ and email `gary.cooper@sample.com`_ that will expire on Dec, 31 2018:
+To create a new account with name *Gary Cooper* and email *gary.cooper@sample.com* that will expire on Dec, 31 2018:
 
 ::
 
@@ -428,7 +429,7 @@ To create a new account with name `Gary Cooper`_ and email `gary.cooper@sample.c
     }
     +---------------------------------+
 
-To add a new key to account `john.doe`_ (Id 1):
+To add a new key to account *john.doe* (Id 1):
 
 ::
 
@@ -448,7 +449,7 @@ To add a new key to account `john.doe`_ (Id 1):
       +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-To add a new key with signature to account `john.doe`_ (Id 1):
+To add a new key with signature to account *john.doe* (Id 1):
 
 ::
 
@@ -497,7 +498,7 @@ To import `John Doe`'s public keys from his github account (which is `jdoe80`):
     +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-To add a new permission to `john.doe`_ to let him login as user `ubuntu` to host `srv-sample-01`
+To add a new permission to `john.doe` to let him login as user `ubuntu` to host `srv-sample-01`
 
 ::
 
