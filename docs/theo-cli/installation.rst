@@ -54,5 +54,5 @@ Or they can be stored in a file:
 ::
 
   $PWD/.env
-  $HOME/.theo-cli/env
-  /etc/theo-cli/env
+  $HOME/.theo/env
+  /etc/theo/env
