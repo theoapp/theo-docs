@@ -49,6 +49,7 @@ First steps
 
    theo-cli/installation
    theo-cli/signed_keys
+   theo-cli/usage
 
 .. toctree::
    :maxdepth: 2
