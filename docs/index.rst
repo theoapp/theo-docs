@@ -22,6 +22,25 @@ First steps
 * **Getting started**:
   :doc:`Cookbook <setup/cookbook>`
 
+* **Public test instance**:
+
+A public test instance is available at [theo.test.authkeys.io](https://theo.test.authkeys.io)
+
+Database will be reset every 6 hours (0am 6am 12pm 18pm UTC)
+
+Configured tokens:
+
+::
+
+    ADMIN_TOKEN=RMkqF4B8h6jtv3upvy3QubzNyTrMdgn8
+
+    CLIENT_TOKENS=h8LYYwGgTqKFYQ3mRN2hv8vK5CBGJvMs,gAWXaG9ZnhHAXsDbF6dv3NYEbPNuZKR7
+
+
+Instance has the `REQUIRE_SIGNED_KEY` flag on, so you need to enable key sign/verify on your side
+
+**Be aware that the instance is public, so everyone has access to the data, please use fake email**
+
 .. toctree::
    :maxdepth: 3
    :hidden:
