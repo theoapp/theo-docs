@@ -22,9 +22,11 @@ First steps
 * **Getting started**:
   :doc:`Cookbook <setup/cookbook>`
 
-* **Public test instance**:
 
-A public test instance is available at [theo.test.authkeys.io](https://theo.test.authkeys.io)
+Public test instance
+--------------------
+
+A public test instance is available at _theo.test.authkeys.io
 
 Database will be reset every 6 hours (0am 6am 12pm 18pm UTC)
 
@@ -52,7 +54,7 @@ Instance has the `REQUIRE_SIGNED_KEY` flag on, so you need to enable key sign/ve
 .. _theo: https://github.com/theoapp/theo-node/
 .. _theo-agent: https://github.com/theoapp/theo-agent/
 .. _theo-cli: https://github.com/theoapp/theo-cli/
-
+.. _theo.test.authkeys.io: https://theo.test.authkeys.io
 
 .. toctree::
    :maxdepth: 2
