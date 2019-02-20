@@ -26,7 +26,7 @@ First steps
 Public test instance
 --------------------
 
-A public test instance is available at _theo.test.authkeys.io
+A public test instance is available at `theo.test.authkeys.io`_
 
 Database will be reset every 6 hours (0am 6am 12pm 18pm UTC)
 
