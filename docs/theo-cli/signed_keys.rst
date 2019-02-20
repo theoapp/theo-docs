@@ -45,8 +45,8 @@ You can do it in 2 ways:
 ::
 
     $PWD/.env
-    $HOME/.theo-cli/env
-    /etc/theo-cli/env
+    $HOME/.theo/env
+    /etc/theo/env
 
 `THEO_PRIVATE_KEY` must point to your private key (use full path).
 `THEO_PRIVATE_KEY_PASSPHRASE` is the pass phrase to unlock the private key.
