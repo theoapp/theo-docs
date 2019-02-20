@@ -27,11 +27,13 @@ This is an example of `config.yml`:
     token: XXXXXXXX
     public_key: /etc/theo-agent/public.pem
 
-``sshd_config`` must include the ``-verify`` flag in ``AuthorizedKeysCommand`` :
+``/etc/ssh/sshd_config`` must include the ``-verify`` flag in ``AuthorizedKeysCommand`` :
 
 ::
 
     [...]
-    AuthorizedKeysCommand theo-agent -verify
+    AuthorizedKeysCommand theo-agent -verify %u
     AuthorizedKeysCommandUser theo-user
     [...]
+
+Remember to reload sshd

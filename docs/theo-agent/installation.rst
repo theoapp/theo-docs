@@ -101,7 +101,7 @@ Download
 
         PasswordAuthentication no
         AuthorizedKeysFile /var/cache/theo-agent/%u
-        AuthorizedKeysCommand /usr/sbin/theo-agent [-config-file /path/to/config.yml] [-cache-path /path/to/cache/dir]
+        AuthorizedKeysCommand /usr/sbin/theo-agent [-config-file /path/to/config.yml] [-cache-path /path/to/cache/dir] %u
         AuthorizedKeysCommandUser theo-agent
 
 5. Restart openssh
