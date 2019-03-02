@@ -30,6 +30,7 @@ Download
     sudo useradd \
         --comment 'Theo Agent' \
         --shell /bin/false \
+        --system \
         theo-agent
 
 4. Install
