@@ -111,3 +111,12 @@ Download
     ::
 
         sudo systemctl restart ssh.service
+
+6. SELinux
+^^^^^^^^^^
+
+If you're on a system with SELinux enabled (You can check it with: `getenforce`), you must switch sshd to permissive mode: 
+
+    ::
+
+         sudo semanage permissive -a sshd_t
