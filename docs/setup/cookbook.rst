@@ -140,9 +140,10 @@ You need to create a system user:
 
 ::
 
-    sudo useradd --comment 'Theo Agent' \
-        --create-home /var/cache/theo-agent \
+    sudo useradd \
+        --comment 'Theo Agent' \
         --shell /bin/false \
+        --system \
         theo-agent
 
 Configure
