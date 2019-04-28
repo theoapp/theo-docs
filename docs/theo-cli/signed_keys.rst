@@ -20,7 +20,7 @@ First, you need to create private/public keys, we'll use ``openssl``
 
 It will prompt you to insert a pass phrase, memorize it!
 
-now we need to extract from the private key the public key
+now we need to extract the public key (we will use it with `theo-agent` to verify the signatures)
 
 ::
 
@@ -35,7 +35,7 @@ It will ask you the pass phrase to unlock the private key.
 Configure
 ---------
 
-To enable signing, you must set 2 variables: `THEO_PRIVATE_KEY` and `THEO_PRIVATE_KEY_PASSPHRASE`.
+To enable signing, you could set 2 variables: `THEO_PRIVATE_KEY` and `THEO_PRIVATE_KEY_PASSPHRASE`.
 
 You can do it in 2 ways:
 
@@ -63,7 +63,7 @@ Since theo-cli 0.9.0 it's possible to pass private key path and passphrase as ar
 Usage
 -----
 
-When adding a new authorized key to a user, add the `--sign` flag
+When adding a new authorized key to a user, to let `theo` signs the SSH public key add the `--sign` flag
 
 
 ::
@@ -103,3 +103,11 @@ When adding a new authorized key to a user, add the `--sign` flag
         --certificate $HOME/private/theo-private.pem
         --sign \
         --key "ssh-rsa AAAAB3NzaC1yc2E[...]7xUw== john.doe@laptop"
+
+
+Since `theo-cli` `0.10.0`, if you prefer to get the signature yourself (using OpenSSH or other tool) you can pass it to theo with the `--signature` argument
+
+::
+    theo keys add john.doe@example.com \
+        --key "ssh-rsa AAAAB3NzaC1yc2E[...]7xUw== john.doe@laptop" \
+        --signature "81db52ca9a0d6d2[...]31a62663c0ce0a38c24cd7"
