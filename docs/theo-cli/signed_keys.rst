@@ -108,6 +108,7 @@ When adding a new authorized key to a user, to let `theo` signs the SSH public k
 Since `theo-cli` `0.10.0`, if you prefer to get the signature yourself (using OpenSSH or other tool) you can pass it to theo with the `--signature` argument
 
 ::
+
     theo keys add john.doe@example.com \
         --key "ssh-rsa AAAAB3NzaC1yc2E[...]7xUw== john.doe@laptop" \
         --signature "81db52ca9a0d6d2[...]31a62663c0ce0a38c24cd7"
