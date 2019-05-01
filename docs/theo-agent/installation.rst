@@ -9,11 +9,9 @@ Download
 
 ::
 
-    # Linux x86-64
-    sudo curl -L -o /usr/sbin/theo-agent https://github.com/theoapp/theo-agent/releases/download/$(curl -L -s -H 'Accept: application/json' https://github.com/theoapp/theo-agent/releases/latest |sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/')/theo-agent-linux-amd64
-
-    # Linux arm
-    sudo curl -L -o /usr/sbin/theo-agent https://github.com/theoapp/theo-agent/releases/download/$(curl -L -s -H 'Accept: application/json' https://github.com/theoapp/theo-agent/releases/latest |sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/')/theo-agent-linux-arm
+    THEO_AGENT_LATEST=$(curl -L -s -H 'Accept: application/json' https://github.com/theoapp/theo-agent/releases/latest |sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/')
+    sudo curl -L -o /usr/sbin/theo-agent \
+        https://github.com/theoapp/theo-agent/releases/download/${THEO_AGENT_LATEST}/theo-agent-$(uname -s)-$(uname -m)
 
 2. Make it executable
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -115,7 +113,7 @@ Download
 6. SELinux
 ^^^^^^^^^^
 
-If you're on a system with SELinux enabled (You can check it with: `getenforce`), you must switch sshd to permissive mode: 
+If you're on a system with SELinux enabled (You can check it with: `getenforce`), you must switch sshd to permissive mode:
 
     ::
 
