@@ -80,6 +80,8 @@ Download
 4.4. Manual install
 """""""""""""""""""""""""""
 
+    *ATTENTION: with OpenSSH older than 6.9 jump to section 4.5*
+
     Create a ``config.yml`` file (default is */etc/theo-agent/config.yml*):
 
     ::
@@ -93,6 +95,7 @@ Download
 
         mkdir /var/cache/theo-agent
         chmod 755 /var/cache/theo-agent
+        chown theo-agent /var/cache/theo-agent
 
     Modify `/etc/ssh/sshd_config` (if you changed the default path, add the options to the command)
 
@@ -102,6 +105,38 @@ Download
         AuthorizedKeysFile /var/cache/theo-agent/%u
         AuthorizedKeysCommand /usr/sbin/theo-agent [-config-file /path/to/config.yml] [-cache-path /path/to/cache/dir] %u
         AuthorizedKeysCommandUser theo-agent
+
+
+4.5. Manual install with OpenSSH older than 6.9
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+    OpenSSH older than 6.9 does not accept arguments to the `AuthorizedKeysCommand` option, so you must use the default values:
+
+    Create a ``config.yml`` file in */etc/theo-agent/config.yml*:
+
+    ::
+
+        url: THEO_URL
+        token: THEO_CLIENT_TOKEN
+
+
+    Create a cache directory */var/cache/theo-agent*:
+
+    ::
+
+        mkdir /var/cache/theo-agent
+        chmod 755 /var/cache/theo-agent
+        chown theo-agent /var/cache/theo-agent
+
+    Modify `/etc/ssh/sshd_config`
+
+    ::
+
+        PasswordAuthentication no
+        AuthorizedKeysFile /var/cache/theo-agent/%u
+        AuthorizedKeysCommand /usr/sbin/theo-agent
+        AuthorizedKeysCommandUser theo-agent
+
 
 5. Restart openssh
 ^^^^^^^^^^^^^^^^^^
