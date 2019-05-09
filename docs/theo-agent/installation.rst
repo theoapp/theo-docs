@@ -1,10 +1,12 @@
 theo-agent installation
 ================================
 
+ATTENTION: OpenSSH must be version 6.2 or higher
+
 Download
 -------------
 
-1. Simply download one of the binaries for your system:
+1. Download one of the binaries for your system:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
@@ -110,7 +112,7 @@ Download
 4.5. Manual install with OpenSSH older than 6.9
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-    OpenSSH older than 6.9 does not accept arguments to the `AuthorizedKeysCommand` option, so you must use the default values:
+    OpenSSH older than 6.9 does not support passing arguments to the command set with `AuthorizedKeysCommand`, you must use the default values:
 
     Create a ``config.yml`` file in */etc/theo-agent/config.yml*:
 
