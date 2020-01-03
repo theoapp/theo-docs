@@ -1,10 +1,7 @@
-theo-agent installation
+Installation
 ================================
 
 ATTENTION: OpenSSH must be version 6.2 or higher
-
-Download
--------------
 
 1. Download one of the binaries for your system:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -120,6 +117,7 @@ Download
 
         url: THEO_URL
         token: THEO_CLIENT_TOKEN
+        cachedir: /var/cache/theo-agent
 
 
     Create a cache directory */var/cache/theo-agent*:
@@ -155,3 +153,39 @@ If you're on a system with SELinux enabled (You can check it with: `getenforce`)
     ::
 
          sudo semanage permissive -a sshd_t
+
+
+Options
+================================
+
+1. Installation
+^^^^^^^^^^^^^^^^^^
+You can pass these arguments with `-install`
+    ::
+
+        -no-interactive : It will use the value read from the arguments or it will use defaults
+        -config-file /path/to/config-file.yaml : It will use this path as config file
+        -verify: It will set "verify: True" in configuration file
+        -public-key /path/to/public.key : It will add the path to the public key in configuration file
+        -cache-path /path/to/cache/dir: It will add the path to the cache directory in configuration file
+        -sshd-config : It will update sshd_config for you
+        -sshd-config-path /path/to/sshd_config: It will change this file if -sshd-config (default /etc/ssh/sshd_config)
+        -sshd-config-backup : it will make a copy of your sshd_config
+        -hostname-prefix <value>: It will set "hostname-prefix: <value>" in configuration file. The value will be prepend to hostname when querying theo server
+        -hostname-suffix <value>: It will set "hostname-suffix: <value>" in configuration file. The value will be append to hostname when querying theo server
+        -with-password-authentication : if -sshd-config, it will not change PasswordAuthentication value in sshd_config
+        -user <value> : it will use <value> for executing theo-agent (default theo-agent)
+
+2. Execution
+`theo-agent` will accept these arguments (you can add them in sshd_config only if you have OpenSSH equal or greater than 6.9)
+
+    ::
+
+        -config-file /path/to/config-file.yaml : It will use this path as config file
+        -verify: It will set "verify: True" in configuration file
+        -public-key /path/to/public.key : It will add the path to the public key in configuration file
+        -cache-path /path/to/cache/dir: It will add the path to the cache directory in configuration file
+        -hostname-prefix <value>: It will set "hostname-prefix: <value>" in configuration file. The value will be prepend to hostname when querying theo server
+        -hostname-suffix <value>: It will set "hostname-suffix: <value>" in configuration file. The value will be append to hostname when querying theo server
+        -fingerprint <value>: it will send the value of SSH key fingerprint to the server (it will be used to log the account) Requires OpenSSH >= 6.9
+
