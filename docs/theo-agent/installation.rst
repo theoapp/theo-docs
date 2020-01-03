@@ -160,32 +160,74 @@ Options
 
 1. Installation
 ^^^^^^^^^^^^^^^^^^
-You can pass these arguments with `-install`
-    ::
 
-        -no-interactive : It will use the value read from the arguments or it will use defaults
-        -config-file /path/to/config-file.yaml : It will use this path as config file
-        -verify: It will set "verify: True" in configuration file
-        -public-key /path/to/public.key : It will add the path to the public key in configuration file
-        -cache-path /path/to/cache/dir: It will add the path to the cache directory in configuration file
-        -sshd-config : It will update sshd_config for you
-        -sshd-config-path /path/to/sshd_config: It will change this file if -sshd-config (default /etc/ssh/sshd_config)
-        -sshd-config-backup : it will make a copy of your sshd_config
-        -hostname-prefix <value>: It will set "hostname-prefix: <value>" in configuration file. The value will be prepend to hostname when querying theo server
-        -hostname-suffix <value>: It will set "hostname-suffix: <value>" in configuration file. The value will be append to hostname when querying theo server
-        -with-password-authentication : if -sshd-config, it will not change PasswordAuthentication value in sshd_config
-        -user <value> : it will use <value> for executing theo-agent (default theo-agent)
+You can pass these arguments with `-install`
+
++------------------------------------------------+---------------------------------------------------------------------------+
+| -no-interactive                                | It will use the value read from the arguments or it will use defaults     |
++------------------------------------------------+---------------------------------------------------------------------------+
+| -config-file /path/to/config-file.yaml         | It will use this path as config file                                      |
++------------------------------------------------+---------------------------------------------------------------------------+
+| -user <value>                                  | It will use <value> for executing theo-agent (default theo-agent)         |
++------------------------------------------------+---------------------------------------------------------------------------+
+| -verify                                        | It will set "verify: True" in configuration file                          |
++------------------------------------------------+---------------------------------------------------------------------------+
+| -public-key /path/to/public.key                | It will add the path to the public key in configuration file              |
++------------------------------------------------+---------------------------------------------------------------------------+
+| -cache-path /path/to/cache/dir                 | It will add the path to the cache directory in configuration file         |
++------------------------------------------------+---------------------------------------------------------------------------+
+| -sshd-config                                   | It will update sshd_config for you                                        |
++------------------------------------------------+---------------------------------------------------------------------------+
+| -sshd-config-path /path/to/sshd_config         | It will change this file if -sshd-config (default /etc/ssh/sshd_config)   |
++------------------------------------------------+---------------------------------------------------------------------------+
+| -sshd-config-backup                            | It will make a copy of your sshd_config                                   |
++------------------------------------------------+---------------------------------------------------------------------------+
+| -with-password-authentication                  | if -sshd-config, it will not change PasswordAuthentication value          |
+|                                                | in sshd_config                                                            |
++------------------------------------------------+---------------------------------------------------------------------------+
+| -hostname-prefix <value>                       | It will set "hostname-prefix: <value>" in configuration file.             |
+|                                                | The value will be prepend to hostname when querying theo server           |
++------------------------------------------------+---------------------------------------------------------------------------+
+| -hostname-suffix <value>                       | It will set "hostname-suffix: <value>" in configuration file.             |
+|                                                | The value will be append to hostname when querying theo server            |
++------------------------------------------------+---------------------------------------------------------------------------+
 
 2. Execution
+^^^^^^^^^^^^
+
 `theo-agent` will accept these arguments (you can add them in sshd_config only if you have OpenSSH equal or greater than 6.9)
+
++------------------------------------------------+---------------------------------------------------------------------------+
+| -config-file /path/to/config-file.yaml         | It will use this path as config file                                      |
++------------------------------------------------+---------------------------------------------------------------------------+
+| -verify                                        | It will verify SSH public key signatures                                  |
++------------------------------------------------+---------------------------------------------------------------------------+
+| -public-key /path/to/public.key                | It will use this the public key to verify signatures                      |
++------------------------------------------------+---------------------------------------------------------------------------+
+| -cache-path /path/to/cache/dir                 | It will use this path as cache directory                                  |
++------------------------------------------------+---------------------------------------------------------------------------+
+| -hostname-prefix <value>                       | The value will be prepend to hostname when querying theo server           |
++------------------------------------------------+---------------------------------------------------------------------------+
+| -hostname-suffix <value>                       | The value will be append to hostname when querying theo server            |
++------------------------------------------------+---------------------------------------------------------------------------+
+| -fingerprint <value>                           | It will send the value of SSH key fingerprint to the server               |
+|                                                | You need to configure it in `sshd_config` in this way:                    |
+|                                                | ``AuthorizedKeysCommand /usr/sbin/theo-agent -fingerprint %f %u``         |
++------------------------------------------------+---------------------------------------------------------------------------+
+
+Configuration
+================================
+
+Full configuration example
 
     ::
 
-        -config-file /path/to/config-file.yaml : It will use this path as config file
-        -verify: It will set "verify: True" in configuration file
-        -public-key /path/to/public.key : It will add the path to the public key in configuration file
-        -cache-path /path/to/cache/dir: It will add the path to the cache directory in configuration file
-        -hostname-prefix <value>: It will set "hostname-prefix: <value>" in configuration file. The value will be prepend to hostname when querying theo server
-        -hostname-suffix <value>: It will set "hostname-suffix: <value>" in configuration file. The value will be append to hostname when querying theo server
-        -fingerprint <value>: it will send the value of SSH key fingerprint to the server (it will be used to log the account) Requires OpenSSH >= 6.9
+        url: https://example.authkeys.io
+        token: 132411349981792jkwqhqlwer4132345234
+        verify: True
+        public_key: /etc/theo-agent/public.pem
+        cachedir: /var/cache/theo-agent
+        hostname-prefix: dovm-
+        hostname-suffix: -test
+        timeout: 3000
 
