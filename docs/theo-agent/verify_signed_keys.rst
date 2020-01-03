@@ -17,7 +17,7 @@ Setup
 Configure
 =========
 
-With the ``-verify`` flag on, **theo-agent** will use the public key indicated in the ``/etc/theo-agent/config.yml`` to verifiy each signature.
+With the ``-verify`` flag on, or ``verify: True`` in config file,  **theo-agent** will use the public key indicated in the ``/etc/theo-agent/config.yml`` to verifiy each signature.
 
 This is an example of `config.yml`:
 
@@ -25,6 +25,7 @@ This is an example of `config.yml`:
 
     url: https://keys.sample.com
     token: XXXXXXXX
+    verify: True
     public_key: /etc/theo-agent/public.pem
 
 ``/etc/ssh/sshd_config`` must include the ``-verify`` flag in ``AuthorizedKeysCommand`` :
@@ -32,7 +33,7 @@ This is an example of `config.yml`:
 ::
 
     [...]
-    AuthorizedKeysCommand theo-agent -verify %u
+    AuthorizedKeysCommand /usr/sbin/theo-agent
     AuthorizedKeysCommandUser theo-user
     [...]
 
