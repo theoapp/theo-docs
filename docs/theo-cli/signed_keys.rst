@@ -15,7 +15,7 @@ First, you need to create private/public keys, we'll use ``openssl``
 
 ::
 
-    openssl genrsa -aes128 -out private.pem 4096
+    openssl genrsa 4096 | openssl pkcs8 -topk8 -v2 aes-256-cbc -out private.pem
 
 
 It will prompt you to insert a pass phrase, memorize it!
