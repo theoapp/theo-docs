@@ -34,7 +34,7 @@ author = u'Michele (macno) Azzolari'
 # The short X.Y version
 version = u''
 # The full version, including alpha/beta/rc tags
-release = u'0.8.2'
+release = u''
 
 
 # -- General configuration ---------------------------------------------------
