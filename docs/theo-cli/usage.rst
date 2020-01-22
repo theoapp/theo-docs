@@ -93,13 +93,13 @@ Change status/expiration date
 
     theo accounts mod <id> [options]
 
-     Edit account
+    Edit account
 
-     Options:
-       --version      Show version number                                   [boolean]
-       --help         Show help                                             [boolean]
-       --enable, -e   Enable Account                                        [boolean]
-       --disable, -d  Disable Account                                       [boolean]
+    Options:
+      --version      Show version number                                   [boolean]
+      --help         Show help                                             [boolean]
+      --enable, -e   Enable Account                                        [boolean]
+      --disable, -d  Disable Account                                       [boolean]
       --expire, -x  Set account expiration (0 no expire). Use ISO 8601 date format
                       (ex 2018-10-31)                                       [string]
 
