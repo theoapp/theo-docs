@@ -66,22 +66,24 @@ Get
     Options:
       --version  Show version number                                       [boolean]
       --help     Show help                                                 [boolean]
-    ```
 
-    * Add/Create
 
-     ```
-     theo accounts add [options]
+Add/Create
+^^^^^^^^^^
 
-     Create account
+::
 
-     Options:
-       --version    Show version number                                     [boolean]
-       --help       Show help                                               [boolean]
-       --name, -n   Account name                                  [string] [required]
-       --email, -e  Account email                                 [string] [required]
-       --expire, -x  Set account expiration (0 no expire). Use ISO 8601 date format
-                       (ex 2018-10-31)                                     [string]
+    theo accounts add [options]
+
+    Create account
+
+    Options:
+      --version    Show version number                                     [boolean]
+      --help       Show help                                               [boolean]
+      --name, -n   Account name                                  [string] [required]
+      --email, -e  Account email                                 [string] [required]
+      --expire, -x Set account expiration (0 no expire). Use ISO 8601 date format
+                   (ex 2018-10-31)                                          [string]
 
 
 Change status/expiration date
