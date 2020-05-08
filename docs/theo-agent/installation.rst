@@ -41,7 +41,7 @@ ATTENTION: OpenSSH must be version 6.2 or higher
 
     This command will:
 
-    * disable tunneled clear text passwords (no more user/password login!)
+    * disable tunneled clear text passwords (no more user/password login!) [1]
     * disable users' .ssh/authorized_keys
     * set theo-agent as unique source for authorized_keys
 
@@ -56,6 +56,7 @@ ATTENTION: OpenSSH must be version 6.2 or higher
             -token ${THEO_CLIENT_TOKEN}
 
 
+    [1] You can leave your PasswordAuthentication option unchanged adding the ``-with-password-authentication`` flag
 
 4.2. Semi-Automatic install
 """""""""""""""""""""""""""
@@ -96,7 +97,7 @@ ATTENTION: OpenSSH must be version 6.2 or higher
         chmod 755 /var/cache/theo-agent
         chown theo-agent /var/cache/theo-agent
 
-    Modify `/etc/ssh/sshd_config` (if you changed the default path, add the options to the command)
+    Modify ``/etc/ssh/sshd_config`` (if you changed the default path, add the options to the command)
 
     ::
 
@@ -128,7 +129,7 @@ ATTENTION: OpenSSH must be version 6.2 or higher
         chmod 755 /var/cache/theo-agent
         chown theo-agent /var/cache/theo-agent
 
-    Modify `/etc/ssh/sshd_config`
+    Modify ``/etc/ssh/sshd_config``
 
     ::
 
@@ -161,10 +162,12 @@ Options
 1. Installation
 ^^^^^^^^^^^^^^^^^^
 
-You can pass these arguments with `-install`
+You can pass these arguments with ``-install``
 
 +------------------------------------------------+---------------------------------------------------------------------------+
 | -no-interactive                                | It will use the value read from the arguments or it will use defaults     |
++------------------------------------------------+---------------------------------------------------------------------------+
+| -with-password-authentication                  | It will leave your PasswordAuthentication option unchanged                |
 +------------------------------------------------+---------------------------------------------------------------------------+
 | -config-file /path/to/config-file.yaml         | It will use this path as config file                                      |
 +------------------------------------------------+---------------------------------------------------------------------------+
