@@ -167,8 +167,6 @@ You can pass these arguments with ``-install``
 +------------------------------------------------+---------------------------------------------------------------------------+
 | -no-interactive                                | It will use the value read from the arguments or it will use defaults     |
 +------------------------------------------------+---------------------------------------------------------------------------+
-| -with-password-authentication                  | It will leave your PasswordAuthentication option unchanged                |
-+------------------------------------------------+---------------------------------------------------------------------------+
 | -config-file /path/to/config-file.yaml         | It will use this path as config file                                      |
 +------------------------------------------------+---------------------------------------------------------------------------+
 | -user <value>                                  | It will use <value> for executing theo-agent (default theo-agent)         |
@@ -187,6 +185,10 @@ You can pass these arguments with ``-install``
 +------------------------------------------------+---------------------------------------------------------------------------+
 | -with-password-authentication                  | if -sshd-config, it will not change PasswordAuthentication value          |
 |                                                | in sshd_config                                                            |
++------------------------------------------------+---------------------------------------------------------------------------+
+| -with-use-dns                                  | if -sshd-config, it will set UseDNS to true in sshd_config                |
+|                                                | This is needed if you will use hostnames/FQDN in 'from'                   |
+|                                                | authorized_keys options                                                   |
 +------------------------------------------------+---------------------------------------------------------------------------+
 | -hostname-prefix <value>                       | It will set "hostname-prefix: <value>" in configuration file.             |
 |                                                | The value will be prepend to hostname when querying theo server           |
