@@ -11,13 +11,14 @@ Accounts
     Manage accounts
 
     Commands:
-      main.js accounts add [options]        Create account
-      main.js accounts create [options]     Create account
-      main.js accounts rm <id>              Remove account
-      main.js accounts edit <id> [options]  Edit account
-      main.js accounts get <id>             Get account
-      main.js accounts list                 List accounts
-      main.js accounts search               Search accounts
+        theo accounts add [options]               Create account
+        theo accounts rm <id>                     Remove account
+        theo accounts edit <id> [options]         Edit account
+        <group>
+        theo accounts get <id>                    Get account
+        theo accounts list                        List accounts
+        theo accounts mod <id> [options]          Change account status
+        theo accounts search                      Search accounts
 
 
 List
@@ -146,11 +147,11 @@ Groups
     Manage groups
 
     Commands:
-      main.js groups add [options]        Create group
-      main.js groups rm <id>              Remove group
-      main.js groups edit <id> [options]  Edit group
-      main.js groups get <id>             Get group
-      main.js groups list                 List groups
+      theo groups add [options]        Create group
+      theo groups rm <id>              Remove group
+      theo groups edit <id> [options]  Edit group
+      theo groups get <id>             Get group
+      theo groups list                 List groups
 
 List
 ^^^^
@@ -249,10 +250,10 @@ SSH Keys
     Manage accounts' keys
 
     Commands:
-      main.js keys add <account> [options]     Add key to account
-      main.js keys import <account> [options]  Imporrt keys to account from a
+      theo keys add <account> [options]     Add key to account
+      theo keys import <account> [options]  Imporrt keys to account from a
                                                service (github/gitlab)
-      main.js keys rm <account> [options]      Remove key from account
+      theo keys rm <account> [options]      Remove key from account
 
 
 Add
@@ -265,11 +266,37 @@ Add
     Add key to account
 
     Options:
-      --version  Show version number                                       [boolean]
-      --help     Show help                                                 [boolean]
-      --key, -k  Public ssh key                                           [required]
-      --sign, -s        sign Public ssh key with private key provided       [string]
-      --passphrase, -p  private key passhrase                               [string]
+            --version           Show version number                          [boolean]
+            --help              Show help                                    [boolean]
+        -k, --key               Public ssh key                     [string] [required]
+        -s, --sign              sign Public ssh key with private key. (Needs
+                                THEO_PRIVATE_KEY env (or -c) and
+                                THEO_PRIVATE_KEY_PASSPHRASE env (or -p / -i))[boolean]
+        -c, --certificate       Path to private key                           [string]
+        -p, --passphrase        passphrase for private key                    [string]
+        -i, --passphrase-stdin  read passphrase for private key from stdin   [boolean]
+        -g, --signature         Public ssh key' signature                     [string]
+        -o, --ssh-options       SSH options                                   [string]
+
+See :ref:`examples<examples>` for `--ssh-options` syntax
+
+
+Edit
+^^^
+
+::
+
+    theo keys edit <account> [options]
+
+    Update SSH options for an account's key
+
+    Options:
+        --version      Show version number                               [boolean]
+        --help         Show help                                         [boolean]
+    -k, --key          Public ssh key ID                                [required]
+    -o, --ssh-options  SSH options                             [string] [required]
+
+See :ref:`examples<examples>` for `--ssh-options` syntax
 
 
 Import
@@ -312,8 +339,8 @@ Permissions
     Manage accounts' permissions
 
     Commands:
-      main.js permissions add <account>         Add permission to account         [options]
-      main.js permissions rm <account>          Remove permission from account    [options]
+      theo permissions add <account>         Add permission to account         [options]
+      theo permissions rm <account>          Remove permission from account    [options]
 
 
 Add
@@ -383,6 +410,8 @@ Fetch authorized keys
            --host, -h  Host name                                      [string] [required]
            --user, -u  User name                                      [string] [required]
 
+
+:ref:`examples`
 
 Examples
 --------
@@ -561,3 +590,70 @@ To check who has access to server `dev01` with user `ubuntu`:
         permissions search \
         --host dev01
         --user ubuntu
+
+*SSH Options* argument is a JSON string:
+
+''
+
+    THEO_URL=http://localhost:9100 THEO_TOKEN=12345 theo \
+        keys edit john.doe@sample.com \
+        -k 20 --ssh-options '{"from": ["192.168.1.200"]}'
+
+JSON schema
+
+''
+
+    {
+        "from": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "environment": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "command": {
+            "type": "string"
+        },
+        "restrict": {
+            "type": "boolean"
+        },
+        "agent-forwarding": {
+            "type": "boolean"
+        },
+        "port-forwarding": {
+            "type": "boolean"
+        },
+        "pty": {
+            "type": "boolean"
+        },
+        "user-rc": {
+            "type": "boolean"
+        },
+        "X11-forwarding": {
+            "type": "boolean"
+        },
+        "no-agent-forwarding": {
+            "type": "boolean"
+        },
+        "no-port-forwarding": {
+            "type": "boolean"
+        },
+        "no-pty": {
+            "type": "boolean"
+        },
+        "no-user-rc": {
+            "type": "boolean"
+        },
+        "no-X11-forwarding": {
+            "type": "boolean"
+        }
+    }
+
+
+if `restrict` is false (default) only `no-*` properties are evaluated   
+if `restrict` is true, only `agent-forwarding`, `port-forwarding`, `pty`, `user-rc`, `X11-forwarding` are evaluated
